@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Battery, Car, Home, Sun, Cpu, Leaf } from 'lucide-react';
@@ -9,7 +9,7 @@ export default function ProductShowcase() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 40 },
         visible: (i: number) => ({
             opacity: 1,
