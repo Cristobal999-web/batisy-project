@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Battery, Car, Home, Sun, Cpu, Leaf } from 'lucide-react';
@@ -8,19 +8,6 @@ import { Battery, Car, Home, Sun, Cpu, Leaf } from 'lucide-react';
 export default function ProductShowcase() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-    const cardVariants: Variants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: i * 0.15,
-                duration: 0.6,
-                ease: 'easeOut',
-            },
-        }),
-    };
 
     return (
         <section ref={ref} className="section bg-surface/50">
@@ -44,10 +31,9 @@ export default function ProductShowcase() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Card 1 - The Battery (Large) */}
                     <motion.div
-                        custom={0}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0 }}
                         className="lg:row-span-2 group"
                     >
                         <div className="card h-full p-8 relative overflow-hidden">
@@ -108,10 +94,9 @@ export default function ProductShowcase() {
 
                     {/* Card 2 - The Car */}
                     <motion.div
-                        custom={1}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.15 }}
                         className="lg:col-span-2 group"
                     >
                         <div className="card h-full p-8 relative overflow-hidden">
@@ -180,10 +165,9 @@ export default function ProductShowcase() {
 
                     {/* Card 3 - Home Dock */}
                     <motion.div
-                        custom={2}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.3 }}
                         className="group"
                     >
                         <div className="card h-full p-8 relative overflow-hidden">
@@ -225,10 +209,9 @@ export default function ProductShowcase() {
 
                     {/* Card 4 - Smart Tech */}
                     <motion.div
-                        custom={3}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.45 }}
                         className="group"
                     >
                         <div className="card h-full p-8 relative overflow-hidden">
@@ -256,10 +239,9 @@ export default function ProductShowcase() {
 
                     {/* Card 5 - Sustainability */}
                     <motion.div
-                        custom={4}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.6 }}
                         className="group"
                     >
                         <div className="card h-full p-8 relative overflow-hidden bg-gradient-to-br from-secondary/5 to-transparent">
