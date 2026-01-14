@@ -126,7 +126,7 @@ export default function ProductShowcase() {
 
                                     {/* Features */}
                                     <div className="flex flex-wrap gap-3">
-                                        {['Techo Solar', 'Pantalla 12"', '4 Plazas', 'Maletero 280L'].map((feature, i) => (
+                                        {['Techo Solar', 'Pantalla 12"', '4 Plazas', 'Maletero 220L'].map((feature, i) => (
                                             <span
                                                 key={i}
                                                 className="px-4 py-2 bg-surface-light/50 rounded-full text-sm text-muted flex items-center gap-2"
