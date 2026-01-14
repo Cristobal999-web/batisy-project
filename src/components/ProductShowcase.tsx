@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Battery, Car, Home, Sun, Cpu, Leaf } from 'lucide-react';
+import { Battery, Car, Home, Sun, Cpu, Leaf, Smartphone, Zap, User } from 'lucide-react';
 
 export default function ProductShowcase() {
     const ref = useRef(null);
@@ -17,7 +17,7 @@ export default function ProductShowcase() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="text-center mb-12"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
                         Un ecosistema <span className="gradient-text">completo</span>
@@ -27,137 +27,116 @@ export default function ProductShowcase() {
                     </p>
                 </motion.div>
 
-                {/* Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* Card 1 - The Battery (Large) */}
+                {/* Compact 2x3 Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    {/* Card 1 - The Battery */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0 }}
-                        className="lg:row-span-2 group"
+                        className="group"
                     >
-                        <div className="card h-full p-8 relative overflow-hidden">
-                            {/* Background Glow */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/20 transition-all duration-500" />
-
-                            <div className="relative z-10 h-full flex flex-col">
-                                {/* Icon */}
-                                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                                    <Battery className="w-7 h-7 text-primary" />
+                        <div className="card h-full p-6 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                                        <Battery className="w-5 h-5 text-primary" />
+                                    </div>
+                                    <span className="text-xs text-primary font-medium uppercase">La Batería</span>
                                 </div>
-
-                                {/* Label */}
-                                <span className="text-sm text-primary font-medium mb-2">LA BATERÍA</span>
-
-                                {/* Title */}
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                                    Solo 15kg. Potencia sin límites.
-                                </h3>
-
-                                {/* Description */}
-                                <p className="text-muted mb-6 flex-grow">
-                                    Celdas NMC 21700 de alto rendimiento. 3kWh por módulo con gestión térmica inteligente.
-                                </p>
-
-                                {/* Specs Grid */}
-                                <div className="grid grid-cols-2 gap-4 mb-8">
+                                <h3 className="text-lg font-bold mb-2">Solo 15kg. Potencia sin límites.</h3>
+                                <p className="text-muted text-sm mb-4">Celdas NMC 21700. 3kWh por módulo.</p>
+                                <div className="grid grid-cols-2 gap-2">
                                     {[
                                         { value: '3 kWh', label: 'Capacidad' },
                                         { value: '15 kg', label: 'Peso' },
                                         { value: '2000+', label: 'Ciclos' },
                                         { value: '10 años', label: 'Garantía' },
                                     ].map((spec, i) => (
-                                        <div key={i} className="bg-surface-light/50 rounded-xl p-3">
-                                            <div className="text-lg font-bold text-primary">{spec.value}</div>
-                                            <div className="text-xs text-muted">{spec.label}</div>
+                                        <div key={i} className="bg-surface-light/50 rounded-lg p-2">
+                                            <div className="text-sm font-bold text-primary">{spec.value}</div>
+                                            <div className="text-[10px] text-muted">{spec.label}</div>
                                         </div>
                                     ))}
-                                </div>
-
-                                {/* Visual - Battery Module */}
-                                <div className="relative h-48 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent overflow-hidden">
-                                    <motion.div
-                                        animate={{ y: [5, -5, 5] }}
-                                        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                                        className="absolute inset-0 flex items-center justify-center"
-                                    >
-                                        <div className="w-32 h-40 rounded-2xl bg-gradient-to-b from-surface-light to-surface border border-primary/30 flex flex-col items-center justify-center shadow-2xl">
-                                            <div className="w-16 h-4 bg-primary/50 rounded-full mb-4" />
-                                            <Battery className="w-12 h-12 text-primary" />
-                                            <span className="text-xs text-muted mt-2">BATISY Core</span>
-                                        </div>
-                                    </motion.div>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Card 2 - The Car */}
+                    {/* Card 2 - App Preview */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.15 }}
-                        className="lg:col-span-2 group"
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="group"
                     >
-                        <div className="card h-full p-8 relative overflow-hidden">
-                            {/* Background Gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/5 to-transparent" />
-
-                            <div className="relative z-10 flex flex-col md:flex-row gap-8">
+                        <div className="card h-full p-6 relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
+                            <div className="relative z-10 flex gap-4">
                                 <div className="flex-1">
-                                    {/* Icon */}
-                                    <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6">
-                                        <Car className="w-7 h-7 text-secondary" />
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                                            <Smartphone className="w-5 h-5 text-primary" />
+                                        </div>
+                                        <span className="text-xs text-primary font-medium uppercase">BATISY App</span>
                                     </div>
-
-                                    {/* Label */}
-                                    <span className="text-sm text-secondary font-medium mb-2">BATISY ONE</span>
-
-                                    {/* Title */}
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                                        Diseño Urbano Premium.
-                                    </h3>
-
-                                    {/* Description */}
-                                    <p className="text-muted mb-6">
-                                        Pensado para la ciudad. Compacto por fuera, espacioso por dentro.
-                                        Con techo solar integrado que alimenta tus sistemas auxiliares.
-                                    </p>
-
-                                    {/* Features */}
-                                    <div className="flex flex-wrap gap-3">
-                                        {['Techo Solar', 'Pantalla 12"', '4 Plazas', 'Maletero 220L'].map((feature, i) => (
-                                            <span
-                                                key={i}
-                                                className="px-4 py-2 bg-surface-light/50 rounded-full text-sm text-muted flex items-center gap-2"
-                                            >
-                                                {feature}
-                                            </span>
+                                    <h3 className="text-lg font-bold mb-2">Todo en tu bolsillo</h3>
+                                    <p className="text-muted text-xs mb-3">Controla vehículo, baterías y entregas.</p>
+                                    <div className="space-y-1.5">
+                                        {[
+                                            { icon: Car, label: 'Estado vehículo', color: 'text-primary' },
+                                            { icon: Battery, label: 'Nivel batería', color: 'text-secondary' },
+                                            { icon: Home, label: 'Control Dock', color: 'text-amber-500' },
+                                            { icon: Zap, label: 'Solicitar Swap', color: 'text-purple-400' },
+                                        ].map((f, i) => (
+                                            <div key={i} className="flex items-center gap-1.5 text-xs">
+                                                <f.icon className={`w-3 h-3 ${f.color}`} />
+                                                <span className="text-muted">{f.label}</span>
+                                            </div>
                                         ))}
                                     </div>
+                                    <a href="/app" className="inline-block mt-3 px-3 py-1.5 bg-primary/10 text-primary rounded-lg text-xs font-medium hover:bg-primary/20 transition-colors">
+                                        Ver Demo
+                                    </a>
                                 </div>
-
-                                {/* Visual - Car Silhouette */}
-                                <div className="flex-1 relative min-h-[200px]">
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="relative">
-                                            {/* Car body shape */}
-                                            <div className="w-64 h-24 bg-gradient-to-r from-surface-light to-surface rounded-t-[60px] relative">
-                                                {/* Windshield */}
-                                                <div className="absolute top-2 left-8 right-8 h-12 bg-primary/10 rounded-t-[40px]" />
-                                                {/* Roof highlight */}
-                                                <div className="absolute top-0 left-12 right-12 h-1 bg-secondary/50 rounded-full" />
+                                {/* Mini Phone */}
+                                <div className="hidden sm:flex items-center">
+                                    <motion.div
+                                        animate={{ y: [0, -4, 0] }}
+                                        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                                        className="w-24 h-44 bg-surface-light rounded-2xl border border-white/10 p-1 shadow-lg"
+                                    >
+                                        <div className="w-full h-full bg-[#050505] rounded-xl overflow-hidden relative">
+                                            <div className="h-4 bg-surface-light/50 flex items-center justify-center">
+                                                <div className="w-8 h-0.5 bg-white/20 rounded-full" />
                                             </div>
-                                            {/* Car bottom */}
-                                            <div className="w-72 h-12 bg-surface-light -ml-4 rounded-b-lg flex items-end justify-between px-8">
-                                                {/* Wheels */}
-                                                <div className="w-10 h-10 bg-surface rounded-full border-4 border-muted/50 -mb-4" />
-                                                <div className="w-10 h-10 bg-surface rounded-full border-4 border-muted/50 -mb-4" />
+                                            <div className="p-2 space-y-2">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-[8px] font-bold text-primary">BATISY One</span>
+                                                    <span className="text-[8px] text-secondary">87%</span>
+                                                </div>
+                                                <div className="h-10 rounded bg-primary/10 flex items-center justify-center">
+                                                    <Car className="w-8 h-5 text-primary/50" />
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-1">
+                                                    <div className="bg-surface-light/50 rounded p-1 text-center">
+                                                        <div className="text-[8px] font-bold text-primary">156km</div>
+                                                    </div>
+                                                    <div className="bg-surface-light/50 rounded p-1 text-center">
+                                                        <div className="text-[8px] font-bold text-secondary">7/8</div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            {/* Glow underneath */}
-                                            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-8 bg-primary/20 blur-2xl" />
+                                            <div className="absolute bottom-0 left-0 right-0 h-6 bg-surface-light/80 flex items-center justify-around">
+                                                <Car className="w-3 h-3 text-primary" />
+                                                <Home className="w-3 h-3 text-muted" />
+                                                <Zap className="w-3 h-3 text-muted" />
+                                                <User className="w-3 h-3 text-muted" />
+                                            </div>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>
@@ -167,102 +146,95 @@ export default function ProductShowcase() {
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
                         className="group"
                     >
-                        <div className="card h-full p-8 relative overflow-hidden">
+                        <div className="card h-full p-6 relative overflow-hidden">
                             <div className="relative z-10">
-                                {/* Icon */}
-                                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6">
-                                    <Home className="w-7 h-7 text-amber-500" />
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
+                                        <Home className="w-5 h-5 text-amber-500" />
+                                    </div>
+                                    <span className="text-xs text-amber-500 font-medium uppercase">Home Dock</span>
                                 </div>
-
-                                {/* Label */}
-                                <span className="text-sm text-amber-500 font-medium mb-2">HOME DOCK</span>
-
-                                {/* Title */}
-                                <h3 className="text-xl font-bold mb-3">
-                                    Carga en tu salón. Energía inteligente.
-                                </h3>
-
-                                {/* Description */}
-                                <p className="text-muted text-sm mb-6">
-                                    Estación de carga doméstica que se integra con tu hogar. Compatible con paneles solares.
-                                </p>
-
-                                {/* Visual - Dock */}
-                                <div className="h-32 rounded-xl bg-gradient-to-b from-amber-500/5 to-transparent flex items-center justify-center">
+                                <h3 className="text-lg font-bold mb-2">Carga en tu salón</h3>
+                                <p className="text-muted text-sm mb-4">Estación doméstica compatible con paneles solares.</p>
+                                <div className="h-20 rounded-xl bg-gradient-to-b from-amber-500/5 to-transparent flex items-center justify-center">
                                     <motion.div
-                                        animate={{ scale: [1, 1.02, 1] }}
+                                        animate={{ scale: [1, 1.03, 1] }}
                                         transition={{ duration: 2, repeat: Infinity }}
-                                        className="w-16 h-24 bg-surface-light rounded-lg border border-amber-500/30 flex flex-col items-center justify-center gap-2"
+                                        className="w-12 h-16 bg-surface-light rounded-lg border border-amber-500/30 flex flex-col items-center justify-center gap-1"
                                     >
-                                        <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center">
-                                            <Sun className="w-5 h-5 text-amber-500" />
+                                        <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center">
+                                            <Sun className="w-3 h-3 text-amber-500" />
                                         </div>
-                                        <div className="w-8 h-1 bg-amber-500/50 rounded-full" />
+                                        <div className="w-5 h-0.5 bg-amber-500/50 rounded-full" />
                                     </motion.div>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Card 4 - Smart Tech */}
+                    {/* Card 4 - Smart BMS */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.45 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
                         className="group"
                     >
-                        <div className="card h-full p-8 relative overflow-hidden">
+                        <div className="card h-full p-6 relative overflow-hidden">
                             <div className="relative z-10">
-                                {/* Icon */}
-                                <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6">
-                                    <Cpu className="w-7 h-7 text-purple-500" />
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                                        <Cpu className="w-5 h-5 text-purple-500" />
+                                    </div>
+                                    <span className="text-xs text-purple-500 font-medium uppercase">Smart BMS</span>
                                 </div>
-
-                                {/* Label */}
-                                <span className="text-sm text-purple-500 font-medium mb-2">SMART BMS</span>
-
-                                {/* Title */}
-                                <h3 className="text-xl font-bold mb-3">
-                                    Inteligencia en cada celda.
-                                </h3>
-
-                                {/* Description */}
-                                <p className="text-muted text-sm">
-                                    Sistema de gestión de batería con IA predictiva. Monitorización 24/7 desde tu app.
-                                </p>
+                                <h3 className="text-lg font-bold mb-2">Inteligencia en cada celda</h3>
+                                <p className="text-muted text-sm">Sistema de gestión con IA predictiva. Monitorización 24/7 desde tu app.</p>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Card 5 - Sustainability */}
+                    {/* Card 5 - Eco Friendly */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.6 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
                         className="group"
                     >
-                        <div className="card h-full p-8 relative overflow-hidden bg-gradient-to-br from-secondary/5 to-transparent">
+                        <div className="card h-full p-6 relative overflow-hidden bg-gradient-to-br from-secondary/5 to-transparent">
                             <div className="relative z-10">
-                                {/* Icon */}
-                                <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6">
-                                    <Leaf className="w-7 h-7 text-secondary" />
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center">
+                                        <Leaf className="w-5 h-5 text-secondary" />
+                                    </div>
+                                    <span className="text-xs text-secondary font-medium uppercase">Eco Friendly</span>
                                 </div>
+                                <h3 className="text-lg font-bold mb-2">100% reciclable</h3>
+                                <p className="text-muted text-sm">Segunda vida garantizada: vehículo, almacenamiento estático, y reciclaje total.</p>
+                            </div>
+                        </div>
+                    </motion.div>
 
-                                {/* Label */}
-                                <span className="text-sm text-secondary font-medium mb-2">ECO FRIENDLY</span>
-
-                                {/* Title */}
-                                <h3 className="text-xl font-bold mb-3">
-                                    100% reciclable. Segunda vida garantizada.
-                                </h3>
-
-                                {/* Description */}
-                                <p className="text-muted text-sm">
-                                    Nuestras baterías tienen múltiples vidas: vehículo, almacenamiento estático, y reciclaje total.
-                                </p>
+                    {/* Card 6 - Swap Network */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        className="group"
+                    >
+                        <div className="card h-full p-6 relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent" />
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
+                                        <Zap className="w-5 h-5 text-blue-400" />
+                                    </div>
+                                    <span className="text-xs text-blue-400 font-medium uppercase">Click & Go</span>
+                                </div>
+                                <h3 className="text-lg font-bold mb-2">30 segundos por módulo</h3>
+                                <p className="text-muted text-sm">Intercambio ultrarrápido. Sin esperas, sin cables, sin complicaciones.</p>
                             </div>
                         </div>
                     </motion.div>
